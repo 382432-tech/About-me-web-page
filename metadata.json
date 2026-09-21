@@ -1,6 +1,0 @@
-{
-  "name": "Subhan's Personal Website",
-  "description": "Personal student portfolio website for Subhan featuring interactive pages, contact form, persistent JSON storage, and admin dashboard.",
-  "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
-}

@@ -1,18 +1,96 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Subhan's Personal Website</title>
-    <meta name="description" content="Personal student portfolio website for Subhan featuring interactive pages, contact form, persistent JSON storage, and admin dashboard." />
-    <meta property="og:title" content="Subhan's Personal Website" />
-    <meta property="og:description" content="Personal student portfolio website for Subhan featuring interactive pages, contact form, persistent JSON storage, and admin dashboard." />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
-  </head>
-  <body class="bg-black text-neutral-100 antialiased selection:bg-blue-600/30 selection:text-blue-200">
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A field notebook for a multidisciplinary creator working across design, technology and storytelling.">
+  <title>Field Notes — A multidisciplinary creator</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%232d2d3a'/%3E%3Ctext x='32' y='41' text-anchor='middle' font-family='Georgia,serif' font-size='27' fill='%23f4eee5'%3EFN%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <header class="site-header">
+    <a class="wordmark" href="#top" aria-label="Back to top"><span>FN</span> field notes</a>
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="#work">Selected work</a>
+      <a href="#practice">Practice</a>
+      <a href="#about">About</a>
+    </nav>
+    <a class="header-contact" href="#contact">Let's talk <span aria-hidden="true">↗</span></a>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="mobile-nav">Menu</button>
+  </header>
+  <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation">
+    <a href="#work">Selected work</a><a href="#practice">Practice</a><a href="#about">About</a><a href="#contact">Let's talk</a>
+  </nav>
+
+  <main id="top">
+    <section class="hero section-pad">
+      <div class="hero-kicker reveal"><span class="dot"></span> Independent creative practice · 2024—25</div>
+      <div class="hero-grid">
+        <div class="hero-copy reveal">
+          <p class="eyebrow">Designing for the space between</p>
+          <h1>Good ideas<br><em>need a place</em><br>to land.</h1>
+          <p class="hero-intro">I’m <strong>[Your Name]</strong> — a multidisciplinary creator making visual identities, digital experiences, and stories for people building a more considered world.</p>
+          <a class="round-link" href="#work"><span>Explore the notebook</span><b>↓</b></a>
+        </div>
+        <div class="hero-art reveal" aria-label="Abstract editorial artwork">
+          <div class="orbit orbit-a"></div><div class="orbit orbit-b"></div>
+          <div class="sun"></div><div class="paper-shape paper-one"></div><div class="paper-shape paper-two"></div>
+          <span class="art-note note-a">observe<br>→ connect</span>
+          <span class="art-note note-b">a study in<br>useful wonder</span>
+          <span class="art-index">01 / 07</span>
+        </div>
+      </div>
+      <div class="scroll-mark"><span>Scroll slowly</span><i></i></div>
+    </section>
+
+    <section id="work" class="work section-pad">
+      <div class="section-heading reveal"><p class="eyebrow">A few recent coordinates</p><h2>Selected <em>work</em></h2><span class="heading-rule"></span></div>
+      <div class="work-list">
+        <article class="work-card reveal">
+          <div class="card-visual visual-coral"><span class="visual-word">COMMON<br>GROUND</span><span class="visual-stamp">01 — identity</span><div class="visual-line"></div></div>
+          <div class="card-meta"><p class="card-number">01</p><div><h3>Common Ground</h3><p>A flexible identity for a neighborhood learning studio, built to make curiosity feel like a shared language.</p><a href="#contact" class="text-link">Read the story <span>↗</span></a></div><p class="card-year">2024</p></div>
+        </article>
+        <article class="work-card work-card-offset reveal">
+          <div class="card-visual visual-lilac"><span class="visual-word small">SOFT<br>SYSTEMS</span><span class="visual-stamp">02 — digital</span><div class="visual-grid"></div></div>
+          <div class="card-meta"><p class="card-number">02</p><div><h3>Soft Systems</h3><p>An editorial web experience about the invisible rituals that help a creative team do its best work.</p><a href="#contact" class="text-link">Read the story <span>↗</span></a></div><p class="card-year">2023</p></div>
+        </article>
+        <article class="work-card reveal">
+          <div class="card-visual visual-sage"><span class="visual-word">FIELD<br>GUIDE</span><span class="visual-stamp">03 — publication</span><div class="visual-arc"></div></div>
+          <div class="card-meta"><p class="card-number">03</p><div><h3>Field Guide to Elsewhere</h3><p>A small publication for big questions: a tactile map of places, practices, and possible futures.</p><a href="#contact" class="text-link">Read the story <span>↗</span></a></div><p class="card-year">2022</p></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="practice" class="practice section-pad">
+      <div class="practice-intro reveal"><p class="eyebrow">The working method</p><h2>Less polish.<br><em>More presence.</em></h2><p>Every project starts with listening. The shape comes later.</p></div>
+      <div class="principles">
+        <div class="principle reveal"><span>01</span><h3>Notice first</h3><p>Find the detail that everyone else has learned to look past. That’s usually where the honest idea is hiding.</p></div>
+        <div class="principle reveal"><span>02</span><h3>Make room</h3><p>Good collaboration is a generous edit. I bring structure, questions, and enough quiet for the work to surprise us.</p></div>
+        <div class="principle reveal"><span>03</span><h3>Leave a trace</h3><p>Build things with a point of view — and a life beyond the launch. Useful, memorable, and made to be lived with.</p></div>
+      </div>
+      <div class="marquee" aria-hidden="true"><span>curiosity is a creative tool&nbsp;&nbsp; · &nbsp;&nbsp;curiosity is a creative tool&nbsp;&nbsp; · &nbsp;&nbsp;</span></div>
+    </section>
+
+    <section id="about" class="about section-pad">
+      <div class="about-portrait reveal"><div class="portrait-ring"></div><div class="portrait-caption">A portrait, for now<br><em>drawn in the margins</em></div></div>
+      <div class="about-copy reveal"><p class="eyebrow">A little context</p><h2>Part studio,<br>part <em>observatory.</em></h2><p class="large-copy">I work across the seams of disciplines — where a brand becomes a feeling, where technology becomes a tool for care, where a story finds its shape.</p><p class="small-copy">This is sample copy to make the page feel lived-in. Replace it with your own point of view, your places, your collaborators, and the questions you can’t stop thinking about.</p><div class="about-facts"><div><span>Based in</span><strong>[City / timezone]</strong></div><div><span>Available for</span><strong>Selected collaborations</strong></div></div></div>
+    </section>
+
+    <section class="notes section-pad">
+      <div class="notes-top"><p class="eyebrow">From the notebook</p><p class="notes-date">Last updated / 06.24</p></div>
+      <div class="note-grid">
+        <blockquote class="reveal">“The best work doesn’t announce itself. It changes the temperature of a room.”</blockquote>
+        <div class="note-items"><a href="#contact" class="note-item reveal"><span>01</span><div><small>Reading</small><strong>The art of paying attention</strong></div><span>↗</span></a><a href="#contact" class="note-item reveal"><span>02</span><div><small>Thinking about</small><strong>Technology with a human pace</strong></div><span>↗</span></a><a href="#contact" class="note-item reveal"><span>03</span><div><small>Looking for</small><strong>Good people, odd problems</strong></div><span>↗</span></a></div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact section-pad">
+      <p class="eyebrow">A fresh page</p><h2>Have a good<br><em>question?</em></h2><p class="contact-copy">Tell me what you’re making, what’s getting in the way, or what you’re curious about. The first note can be brief.</p><a class="email-link" href="mailto:hello@example.com">hello@example.com <span>↗</span></a>
+      <div class="contact-footer"><span>© 2026 [Your Name]</span><span>Design · Technology · Storytelling</span><a href="#top">Back to top ↑</a></div>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
 </html>
