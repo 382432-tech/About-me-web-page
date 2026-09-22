@@ -1,0 +1,1 @@
+- [React image hints](react-image-hints.md) — verify DOM attribute behavior in the installed React version before adding browser-only image hints.

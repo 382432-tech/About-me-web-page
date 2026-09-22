@@ -1,6 +1,10 @@
 modules = ["nodejs-24"]
 
 [[ports]]
+localPort = 3000
+externalPort = 3002
+
+[[ports]]
 localPort = 5000
 externalPort = 80
 
@@ -31,3 +35,7 @@ waitForPort = 5000
 
 [workflows.workflow.metadata]
 outputType = "webview"
+
+[postMerge]
+path = "scripts/post-merge.sh"
+timeoutMs = 180000

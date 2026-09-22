@@ -7,7 +7,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
-const PORT = 3000;
+const PORT = Number(process.env.PORT || 5000);
 
 app.use(express.json());
 
@@ -73,8 +73,12 @@ if (process.env.NODE_ENV === 'production') {
 } else {
   const { createServer: createViteServer } = await import('vite');
   const vite = await createViteServer({
-    server: { middlewareMode: true },
     appType: 'spa',
+    server: {
+      middlewareMode: true,
+      host: '0.0.0.0',
+      allowedHosts: true
+    },
   });
   app.use(vite.middlewares);
 }
