@@ -1,0 +1,6 @@
+{
+  "name": "Subhan's Personal Website",
+  "description": "Personal student portfolio website for Subhan featuring interactive showcases for Home, Media, Hobbies, Traveling, and Future goals.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
