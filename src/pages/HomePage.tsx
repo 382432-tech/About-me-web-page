@@ -1,259 +1,299 @@
 import React from 'react';
 import { PageId } from '../types';
-import { 
-  ArrowRight, 
-  Image as ImageIcon, 
-  Heart, 
-  Plane, 
+import {
+  ArrowDownRight,
+  ArrowRight,
+  ArrowUpRight,
+  BookOpen,
+  Camera,
+  Code2,
+  Heart,
+  Image as ImageIcon,
+  MapPin,
+  PencilLine,
+  Plane,
   Sparkles,
-  UploadCloud
 } from 'lucide-react';
 
 interface HomePageProps {
   onNavigate: (page: PageId) => void;
 }
 
+interface NotebookLink {
+  id: PageId;
+  number: string;
+  title: string;
+  description: string;
+  accent: string;
+  icon: React.ElementType;
+}
+
 export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
+  const notebookLinks: NotebookLink[] = [
+    {
+      id: 'media',
+      number: '02',
+      title: 'Things I make',
+      description: 'Images, interfaces, and the small experiments that teach me how to look closer.',
+      accent: 'hsl(var(--coral))',
+      icon: ImageIcon,
+    },
+    {
+      id: 'hobbies',
+      number: '03',
+      title: 'Things I return to',
+      description: 'The interests that keep my brain curious when the laptop is closed.',
+      accent: 'hsl(var(--sage))',
+      icon: Heart,
+    },
+    {
+      id: 'traveling',
+      number: '04',
+      title: 'Places on my mind',
+      description: 'A growing map of places, food, people, and ideas I want to meet.',
+      accent: 'hsl(var(--ochre))',
+      icon: Plane,
+    },
+    {
+      id: 'future',
+      number: '05',
+      title: 'Where this could go',
+      description: 'A sketch of the software creator I am becoming, one project at a time.',
+      accent: 'hsl(var(--lilac))',
+      icon: Sparkles,
+    },
+  ];
+
   return (
-    <div className="space-y-16 pb-12">
-      {/* Hero Section */}
-      <section className="relative pt-8 sm:pt-14 pb-8 overflow-hidden">
-        {/* Blue ambient glow behind hero */}
-        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] bg-blue-600/15 blur-[120px] rounded-full pointer-events-none -z-10" />
+    <div className="text-[hsl(var(--ink))]">
+      <div className="max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12">
+        <section className="relative grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 pt-12 sm:pt-20 lg:pt-28 pb-20 sm:pb-28">
+          <div className="absolute top-14 right-[13%] w-24 h-24 rounded-full bg-[hsl(var(--lilac)/.55)] blur-[1px] -z-10" />
+          <div className="absolute top-36 left-[43%] w-3 h-3 rounded-full bg-[hsl(var(--coral))] -z-10" />
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-          
-          {/* Main Hero Text */}
-          <div className="lg:col-span-7 space-y-6 text-left">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-mono font-medium">
-              <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse" />
-              Phase 1: Home Page Complete
+          <div className="lg:col-span-7">
+            <div className="reveal flex items-center gap-3 mb-8">
+              <span className="w-10 h-px bg-[hsl(var(--coral))]" />
+              <span className="font-mono-custom text-[10px] uppercase tracking-[.2em] text-[hsl(var(--ink-soft))]">
+                notebook entry 01 / hello
+              </span>
             </div>
 
-            <div className="space-y-2">
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.1]">
-                Hello, I’m <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-blue-200 to-indigo-300">Subhan</span>.
-              </h1>
-              <p className="text-lg sm:text-xl text-neutral-300 font-medium">
-                High School Web Development Student & Future Software Creator
+            <h1 className="reveal reveal-delay-1 font-display text-[clamp(4.5rem,12vw,10.5rem)] leading-[.78] tracking-[-.055em] max-w-4xl">
+              I’m figuring
+              <br />
+              <span className="italic text-[hsl(var(--coral))]">it out.</span>
+            </h1>
+
+            <div className="reveal reveal-delay-2 mt-10 grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-2xl">
+              <p className="text-lg sm:text-xl leading-snug font-medium">
+                I’m Subhan, a high-school web development student and future software creator.
+              </p>
+              <p className="text-sm leading-relaxed text-[hsl(var(--ink-soft))]">
+                This is the place where I collect the useful mess: what I am learning, what I notice, and what I want to build next.
               </p>
             </div>
 
-            {/* Student Biography Section */}
-            <div className="p-5 rounded-2xl bg-neutral-950/80 border border-neutral-800/90 shadow-xl space-y-3">
-              <div className="flex items-center justify-between text-xs font-mono text-neutral-400 border-b border-neutral-800 pb-2">
-                <span>Personal Biography</span>
-                <span className="text-blue-400">Student Profile</span>
-              </div>
-              <p className="text-neutral-300 text-sm sm:text-base leading-relaxed">
-                Welcome to my high school web development portfolio. This website is built to track and demonstrate my growth as a programmer and creator. Across this course, I am designing modular, interactive experiences covering media presentations, personal hobbies, travel aspirations, and future tech goals.
-              </p>
-              <p className="text-neutral-400 text-xs leading-relaxed">
-                Explore each phase below to see my coursework progression and project demos.
-              </p>
-            </div>
-
-            {/* Action Buttons */}
-            <div className="flex flex-wrap items-center gap-3 pt-2">
+            <div className="reveal reveal-delay-3 mt-10 flex flex-wrap items-center gap-4">
               <button
                 onClick={() => onNavigate('media')}
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-medium text-sm transition-all shadow-lg shadow-blue-600/20 active:scale-95 cursor-pointer"
+                className="group inline-flex items-center gap-3 rounded-full bg-[hsl(var(--ink))] px-5 py-3 text-sm font-semibold text-[hsl(var(--paper))] transition-transform hover:-translate-y-1"
               >
-                <span>Explore Phase 2: Media</span>
-                <ArrowRight className="w-4 h-4" />
+                Open the notebook
+                <ArrowRight className="w-4 h-4 text-[hsl(var(--ochre))] transition-transform group-hover:translate-x-1" />
               </button>
-
-              <button
-                onClick={() => onNavigate('hobbies')}
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-neutral-900 hover:bg-neutral-800 border border-neutral-800 text-neutral-200 font-medium text-sm transition-all cursor-pointer"
-              >
-                <span>View Hobbies</span>
-              </button>
-
               <button
                 onClick={() => onNavigate('future')}
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-neutral-900 hover:bg-neutral-800 border border-neutral-800 text-neutral-200 font-medium text-sm transition-all cursor-pointer"
+                className="inline-flex items-center gap-2 rounded-full px-2 py-3 text-sm font-semibold text-[hsl(var(--ink-soft))] transition-colors hover:text-[hsl(var(--coral-deep))]"
               >
-                <span>Future Vision</span>
+                A note about the future
+                <ArrowUpRight className="w-4 h-4" />
               </button>
             </div>
-
-            {/* Course Information Badges */}
-            <div className="flex flex-wrap items-center gap-2 pt-2 text-xs font-mono">
-              <span className="px-2.5 py-1 rounded-md bg-neutral-900 border border-neutral-800 text-neutral-400">
-                School: <span className="text-neutral-200">High School Coursework</span>
-              </span>
-              <span className="px-2.5 py-1 rounded-md bg-neutral-900 border border-neutral-800 text-neutral-400">
-                Course: <span className="text-neutral-200">Web Development</span>
-              </span>
-            </div>
           </div>
 
-          {/* Profile Media Frame */}
-          <div className="lg:col-span-5">
-            <div className="p-3 rounded-2xl bg-neutral-950 border border-neutral-800 shadow-2xl space-y-3">
-              <div className="relative aspect-[3/4] w-full rounded-xl overflow-hidden bg-neutral-900 border border-neutral-800 flex items-center justify-center group">
-                <img 
-                  src="/images/profile.png" 
-                  alt="Subhan's Profile Portrait" 
-                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
-                  onError={(e) => {
-                    const target = e.currentTarget;
-                    if (target.src.endsWith('.png')) {
-                      target.src = '/images/profile.jpg';
-                    } else if (target.src.endsWith('.jpg')) {
-                      target.src = '/images/282905.jpg';
-                    } else {
-                      target.style.display = 'none';
-                      const fallbackEl = document.getElementById('profile-placeholder-box');
-                      if (fallbackEl) fallbackEl.style.display = 'flex';
-                    }
-                  }}
-                  referrerPolicy="no-referrer"
-                />
-                
-                <div 
-                  id="profile-placeholder-box" 
-                  className="hidden absolute inset-0 flex-col items-center justify-center p-6 text-center bg-neutral-900"
-                >
-                  <UploadCloud className="w-10 h-10 text-blue-400 mb-2 animate-pulse" />
-                  <span className="text-sm font-bold text-white mb-1">
-                    Subhan's Profile Photo
-                  </span>
-                  <p className="text-xs text-neutral-400 max-w-xs font-mono">
-                    Drop your photo into <span className="text-blue-400 font-semibold">public/images/profile.png</span>
-                  </p>
+          <div className="lg:col-span-5 lg:pt-14 reveal reveal-delay-2">
+            <div className="relative max-w-md ml-auto">
+              <div className="absolute -top-7 -left-7 w-20 h-20 border-t border-l border-[hsl(var(--ink)/.3)]" />
+              <div className="absolute -bottom-5 -right-5 w-24 h-20 bg-[hsl(var(--ochre)/.35)] -z-10" />
+              <div className="rotate-[2deg] bg-[hsl(var(--paper-deep))] p-3 shadow-[10px_12px_0_hsl(var(--ink)/.08)]">
+                <div className="relative aspect-[4/5] overflow-hidden bg-[hsl(var(--sage)/.55)]">
+                  <img
+                    src="/images/profile.png"
+                    alt="Portrait of Subhan"
+                    className="h-full w-full object-cover object-center mix-blend-multiply transition-transform duration-700 hover:scale-105"
+                    onError={(event) => {
+                      const image = event.currentTarget;
+                      image.style.display = 'none';
+                      const fallback = image.nextElementSibling;
+                      if (fallback instanceof HTMLElement) fallback.style.display = 'flex';
+                    }}
+                  />
+                  <div className="absolute inset-0 hidden flex-col items-center justify-center bg-[hsl(var(--sage))] p-8 text-center">
+                    <Camera className="mb-4 h-8 w-8 text-[hsl(var(--ink))]" strokeWidth={1.5} />
+                    <span className="font-display text-3xl">A portrait, soon.</span>
+                    <span className="mt-2 font-mono-custom text-[10px] uppercase tracking-widest text-[hsl(var(--ink-soft))]">
+                      image note / 001
+                    </span>
+                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-[hsl(var(--ink)/.38)] via-transparent to-transparent pointer-events-none" />
+                  <div className="absolute left-4 bottom-4 right-4 flex items-end justify-between text-[hsl(var(--paper))]">
+                    <span className="font-display text-3xl">Subhan</span>
+                    <span className="font-mono-custom text-[10px] uppercase tracking-wider">self / study</span>
+                  </div>
                 </div>
-
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
-                <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between pointer-events-none">
-                  <span className="px-2.5 py-1 rounded-full bg-blue-600/80 backdrop-blur-md text-[11px] font-semibold text-white">
-                    Subhan
-                  </span>
-                  <span className="text-[11px] font-mono text-neutral-300 bg-neutral-950/80 px-2 py-0.5 rounded border border-neutral-800">
-                    Profile Portrait
-                  </span>
+                <div className="flex items-center justify-between px-1 pt-3 font-mono-custom text-[10px] uppercase tracking-wider text-[hsl(var(--ink-soft))]">
+                  <span>currently learning</span>
+                  <span>web / 01</span>
                 </div>
               </div>
-
-              <div className="p-2.5 rounded-xl bg-neutral-900/60 border border-neutral-800/80 text-center">
-                <span className="text-xs font-mono text-neutral-400">
-                  Target photo: <code className="text-blue-400 font-semibold">public/images/profile.png</code>
-                </span>
+              <div className="absolute -right-8 top-1/2 hidden -rotate-90 font-mono-custom text-[10px] uppercase tracking-[.24em] text-[hsl(var(--ink-soft))] sm:block">
+                keep making notes
               </div>
             </div>
           </div>
+        </section>
 
-        </div>
-      </section>
+        <div className="sketch-line reveal" />
 
-      {/* Course Website Architecture Cards */}
-      <section className="space-y-6">
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2 border-b border-neutral-800/80 pb-4">
-          <div>
-            <span className="text-xs font-mono uppercase tracking-wider text-blue-400 font-semibold">
-              Site Navigation & Structure
-            </span>
-            <h2 className="text-2xl font-bold text-white tracking-tight">
-              Project Pages & Modules
+        <section className="grid grid-cols-1 lg:grid-cols-12 gap-10 py-20 sm:py-28">
+          <div className="lg:col-span-4">
+            <p className="font-mono-custom text-[10px] uppercase tracking-[.2em] text-[hsl(var(--coral-deep))]">01 / a little context</p>
+            <h2 className="mt-5 font-display text-5xl sm:text-6xl leading-[.9] tracking-tight">
+              More curious than certain.
             </h2>
           </div>
-          <p className="text-xs text-neutral-400">
-            Click any section below to test client-side navigation.
-          </p>
+          <div className="lg:col-span-7 lg:col-start-6">
+            <p className="text-2xl sm:text-3xl leading-tight max-w-2xl">
+              I like the moment an idea stops being abstract and starts responding to a click.
+            </p>
+            <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-8 text-sm leading-relaxed text-[hsl(var(--ink-soft))]">
+              <p>
+                I’m learning how the web works by making things for it. Sometimes that means carefully planning a page; sometimes it means following a strange bug until it reveals what I misunderstood.
+              </p>
+              <p>
+                This portfolio is less a finished answer and more a record of the questions I am asking. Take what you like, and come back later to see what changed.
+              </p>
+            </div>
+            <div className="mt-10 flex items-center gap-3 font-mono-custom text-[10px] uppercase tracking-[.16em] text-[hsl(var(--ink-soft))]">
+              <PencilLine className="w-4 h-4 text-[hsl(var(--coral))]" />
+              last edited between assignments
+            </div>
+          </div>
+        </section>
+
+        <section className="border-y border-[hsl(var(--line))] py-16 sm:py-20">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-5 mb-10">
+            <div>
+              <p className="font-mono-custom text-[10px] uppercase tracking-[.2em] text-[hsl(var(--coral-deep))]">index / open pages</p>
+              <h2 className="mt-3 font-display text-5xl sm:text-6xl leading-none">The rest of the story</h2>
+            </div>
+            <p className="max-w-xs text-sm leading-relaxed text-[hsl(var(--ink-soft))]">
+              Four places to wander through the interests behind the code.
+            </p>
+          </div>
+
+          <div className="divide-y divide-[hsl(var(--line))] border-t border-[hsl(var(--line))]">
+            {notebookLinks.map((item) => {
+              const Icon = item.icon;
+              return (
+                <button
+                  key={item.id}
+                  onClick={() => onNavigate(item.id)}
+                  className="group grid w-full grid-cols-[2.5rem_2.5rem_1fr_auto] items-center gap-3 sm:gap-6 py-6 text-left transition-[padding] hover:px-3 sm:hover:px-5"
+                >
+                  <span className="font-mono-custom text-[10px] text-[hsl(var(--ink-soft))]">{item.number}</span>
+                  <span className="flex h-9 w-9 items-center justify-center rounded-full border border-[hsl(var(--line))] transition-colors group-hover:border-transparent" style={{ backgroundColor: `${item.accent}66` }}>
+                    <Icon className="h-4 w-4" strokeWidth={1.7} />
+                  </span>
+                  <span className="min-w-0 pr-3">
+                    <span className="block font-display text-3xl sm:text-4xl leading-none group-hover:text-[hsl(var(--coral-deep))] transition-colors">{item.title}</span>
+                    <span className="mt-2 block max-w-xl text-xs sm:text-sm leading-relaxed text-[hsl(var(--ink-soft))]">{item.description}</span>
+                  </span>
+                  <ArrowUpRight className="h-5 w-5 text-[hsl(var(--ink-soft))] transition-transform group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-[hsl(var(--coral))]" />
+                </button>
+              );
+            })}
+          </div>
+        </section>
+
+        <section className="grid grid-cols-1 lg:grid-cols-12 gap-10 py-20 sm:py-28">
+          <div className="lg:col-span-7 notebook-rule rounded-sm bg-[hsl(var(--lilac)/.38)] p-8 sm:p-12">
+            <div className="flex items-center justify-between font-mono-custom text-[10px] uppercase tracking-[.18em] text-[hsl(var(--ink-soft))]">
+              <span>margin note</span>
+              <Code2 className="h-4 w-4" />
+            </div>
+            <blockquote className="mt-16 sm:mt-24 max-w-xl font-display text-5xl sm:text-7xl leading-[.86] tracking-tight">
+              “The best projects leave you with better questions.”
+            </blockquote>
+            <div className="mt-12 flex items-center gap-3 text-sm text-[hsl(var(--ink-soft))]">
+              <span className="h-px w-8 bg-[hsl(var(--coral))]" />
+              something I am learning
+            </div>
+          </div>
+
+          <div className="lg:col-span-4 lg:col-start-9 flex flex-col justify-between">
+            <div>
+              <p className="font-mono-custom text-[10px] uppercase tracking-[.2em] text-[hsl(var(--coral-deep))]">02 / current signals</p>
+              <h2 className="mt-5 font-display text-5xl leading-[.9]">What is on my desk.</h2>
+            </div>
+            <div className="mt-12 space-y-6">
+              <div className="flex gap-4 border-b border-[hsl(var(--line))] pb-5">
+                <BookOpen className="mt-1 h-5 w-5 shrink-0 text-[hsl(var(--coral))]" strokeWidth={1.7} />
+                <div>
+                  <p className="font-semibold">Learning the fundamentals</p>
+                  <p className="mt-1 text-sm leading-relaxed text-[hsl(var(--ink-soft))]">HTML, CSS, JavaScript, and how to make them feel like one language.</p>
+                </div>
+              </div>
+              <div className="flex gap-4 border-b border-[hsl(var(--line))] pb-5">
+                <MapPin className="mt-1 h-5 w-5 shrink-0 text-[hsl(var(--ochre))]" strokeWidth={1.7} />
+                <div>
+                  <p className="font-semibold">Collecting perspectives</p>
+                  <p className="mt-1 text-sm leading-relaxed text-[hsl(var(--ink-soft))]">Good software starts with paying attention to people and place.</p>
+                </div>
+              </div>
+              <div className="flex gap-4">
+                <Sparkles className="mt-1 h-5 w-5 shrink-0 text-[hsl(var(--coral-deep))]" strokeWidth={1.7} />
+                <div>
+                  <p className="font-semibold">Making room for surprise</p>
+                  <p className="mt-1 text-sm leading-relaxed text-[hsl(var(--ink-soft))]">The next idea usually arrives while working on the current one.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="relative overflow-hidden bg-[hsl(var(--ink))] px-6 py-16 sm:px-12 sm:py-20 text-[hsl(var(--paper))]">
+          <div className="absolute -right-12 -top-16 h-48 w-48 rounded-full border border-[hsl(var(--ochre)/.45)]" />
+          <div className="absolute -right-3 -top-7 h-28 w-28 rounded-full border border-[hsl(var(--coral)/.55)]" />
+          <div className="relative max-w-3xl">
+            <div className="flex items-center gap-3 font-mono-custom text-[10px] uppercase tracking-[.2em] text-[hsl(var(--ochre))]">
+              <span className="h-px w-8 bg-[hsl(var(--ochre))]" />
+              03 / keep in touch with the work
+            </div>
+            <h2 className="mt-7 font-display text-6xl sm:text-8xl leading-[.82] tracking-tight">
+              There’s more
+              <br />
+              <span className="italic text-[hsl(var(--coral))]">ahead.</span>
+            </h2>
+            <p className="mt-8 max-w-md text-sm leading-relaxed text-[hsl(var(--paper)/.7)]">
+              Follow the trail through the pages above, or jump straight to the part of the notebook that feels most like you.
+            </p>
+            <button
+              onClick={() => onNavigate('hobbies')}
+              className="group mt-8 inline-flex items-center gap-3 border-b border-[hsl(var(--paper)/.5)] pb-2 text-sm font-semibold transition-colors hover:border-[hsl(var(--coral))] hover:text-[hsl(var(--coral))]"
+            >
+              Start with the things I love
+              <ArrowDownRight className="h-4 w-4 transition-transform group-hover:translate-y-1 group-hover:translate-x-1" />
+            </button>
+          </div>
+        </section>
+
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 py-8 text-[10px] font-mono-custom uppercase tracking-[.18em] text-[hsl(var(--ink-soft))]">
+          <span>Subhan / high-school web development</span>
+          <span className="flex items-center gap-2"><span className="h-1.5 w-1.5 rounded-full bg-[hsl(var(--sage))]" /> work in progress, by design</span>
         </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
-          {/* Card 1: Media */}
-          <div 
-            onClick={() => onNavigate('media')}
-            className="p-6 rounded-2xl bg-neutral-950 border border-neutral-800/90 hover:border-blue-500/50 cursor-pointer transition-all group flex flex-col justify-between"
-          >
-            <div>
-              <div className="w-10 h-10 rounded-xl bg-neutral-900 border border-neutral-800 flex items-center justify-center text-blue-400 mb-4 group-hover:scale-105 transition-transform">
-                <ImageIcon className="w-5 h-5" />
-              </div>
-              <h3 className="text-lg font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">
-                Phase 2: Media
-              </h3>
-              <p className="text-xs text-neutral-400 leading-relaxed mb-4">
-                Interactive multimedia showcase for photos, design graphics, and coursework video presentations.
-              </p>
-            </div>
-            <div className="flex items-center justify-between pt-4 border-t border-neutral-900 text-xs font-mono text-blue-400">
-              <span>View Phase 2</span>
-              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-            </div>
-          </div>
-
-          {/* Card 2: Hobbies */}
-          <div 
-            onClick={() => onNavigate('hobbies')}
-            className="p-6 rounded-2xl bg-neutral-950 border border-neutral-800/90 hover:border-blue-500/50 cursor-pointer transition-all group flex flex-col justify-between"
-          >
-            <div>
-              <div className="w-10 h-10 rounded-xl bg-neutral-900 border border-neutral-800 flex items-center justify-center text-rose-400 mb-4 group-hover:scale-105 transition-transform">
-                <Heart className="w-5 h-5" />
-              </div>
-              <h3 className="text-lg font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">
-                Phase 3: Hobbies
-              </h3>
-              <p className="text-xs text-neutral-400 leading-relaxed mb-4">
-                Personal interests, creative hobbies, coding projects, and extracurricular activities.
-              </p>
-            </div>
-            <div className="flex items-center justify-between pt-4 border-t border-neutral-900 text-xs font-mono text-rose-400">
-              <span>View Phase 3</span>
-              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-            </div>
-          </div>
-
-          {/* Card 3: Traveling */}
-          <div 
-            onClick={() => onNavigate('traveling')}
-            className="p-6 rounded-2xl bg-neutral-950 border border-neutral-800/90 hover:border-blue-500/50 cursor-pointer transition-all group flex flex-col justify-between"
-          >
-            <div>
-              <div className="w-10 h-10 rounded-xl bg-neutral-900 border border-neutral-800 flex items-center justify-center text-emerald-400 mb-4 group-hover:scale-105 transition-transform">
-                <Plane className="w-5 h-5" />
-              </div>
-              <h3 className="text-lg font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">
-                Phase 4: Traveling
-              </h3>
-              <p className="text-xs text-neutral-400 leading-relaxed mb-4">
-                Places visited, bucket list destinations, cultural experiences, and travel photo journals.
-              </p>
-            </div>
-            <div className="flex items-center justify-between pt-4 border-t border-neutral-900 text-xs font-mono text-emerald-400">
-              <span>View Phase 4</span>
-              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-            </div>
-          </div>
-
-          {/* Card 4: Future */}
-          <div 
-            onClick={() => onNavigate('future')}
-            className="p-6 rounded-2xl bg-neutral-950 border border-neutral-800/90 hover:border-blue-500/50 cursor-pointer transition-all group flex flex-col justify-between"
-          >
-            <div>
-              <div className="w-10 h-10 rounded-xl bg-neutral-900 border border-neutral-800 flex items-center justify-center text-violet-400 mb-4 group-hover:scale-105 transition-transform">
-                <Sparkles className="w-5 h-5" />
-              </div>
-              <h3 className="text-lg font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">
-                Phase 7: Future
-              </h3>
-              <p className="text-xs text-neutral-400 leading-relaxed mb-4">
-                Long-term career aspirations, higher education pathways in computer science, and engineering vision.
-              </p>
-            </div>
-            <div className="flex items-center justify-between pt-4 border-t border-neutral-900 text-xs font-mono text-violet-400">
-              <span>View Phase 7</span>
-              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-            </div>
-          </div>
-
-        </div>
-      </section>
+      </div>
     </div>
   );
 };

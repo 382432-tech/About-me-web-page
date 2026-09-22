@@ -1,6 +1,6 @@
 import React from 'react';
 import { PageId } from '../types';
-import { Heart } from 'lucide-react';
+import { ArrowUpRight, Circle } from 'lucide-react';
 
 interface FooterProps {
   onNavigate: (page: PageId) => void;
@@ -8,43 +8,47 @@ interface FooterProps {
 
 export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
   return (
-    <footer className="border-t border-neutral-800/80 bg-neutral-950/60 mt-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+    <footer className="border-t border-[hsl(var(--line))] bg-[hsl(var(--paper-deep)/.34)] mt-24">
+      <div className="max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12 py-14">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 mb-12">
           
-          <div className="space-y-3 md:col-span-2">
+          <div className="space-y-4 md:col-span-7">
             <div className="flex items-center gap-2">
-              <div className="w-6 h-6 rounded-md bg-blue-600/30 flex items-center justify-center text-blue-400 font-mono font-bold text-xs">
+              <div className="w-7 h-7 rounded-full bg-[hsl(var(--coral))] flex items-center justify-center text-[hsl(var(--paper))] font-display text-sm">
                 S
               </div>
-              <span className="font-bold text-white tracking-tight">Subhan's Web Development Portfolio</span>
+              <span className="font-display text-2xl text-[hsl(var(--ink))]">Subhan's field notebook</span>
             </div>
-            <p className="text-xs text-neutral-400 max-w-sm leading-relaxed">
-              Created for the high school web development coursework curriculum. Designed for modular development across coursework phases.
+            <p className="text-sm text-[hsl(var(--ink-soft))] max-w-md leading-relaxed">
+              A living record of what I am learning, noticing, and making as a high-school web development student.
             </p>
           </div>
 
-          <div className="space-y-2">
-            <h4 className="text-xs font-semibold text-neutral-200 uppercase tracking-wider font-mono">
-              Portfolio Navigation
+          <div className="space-y-3 md:col-span-3">
+            <h4 className="text-[10px] font-semibold text-[hsl(var(--ink-soft))] uppercase tracking-[.16em] font-mono-custom">
+              Turn the page
             </h4>
-            <div className="flex flex-col space-y-1.5 text-xs text-neutral-400">
-              <button onClick={() => onNavigate('home')} className="hover:text-blue-400 text-left transition-colors">Phase 1: Home</button>
-              <button onClick={() => onNavigate('media')} className="hover:text-blue-400 text-left transition-colors">Phase 2: Media</button>
-              <button onClick={() => onNavigate('hobbies')} className="hover:text-blue-400 text-left transition-colors">Phase 3: Hobbies</button>
-              <button onClick={() => onNavigate('traveling')} className="hover:text-blue-400 text-left transition-colors">Phase 4: Traveling</button>
-              <button onClick={() => onNavigate('future')} className="hover:text-blue-400 text-left transition-colors">Phase 7: Future</button>
+            <div className="grid grid-cols-2 gap-y-2 text-sm text-[hsl(var(--ink-soft))]">
+              <button onClick={() => onNavigate('home')} className="hover:text-[hsl(var(--coral-deep))] text-left transition-colors">About</button>
+              <button onClick={() => onNavigate('media')} className="hover:text-[hsl(var(--coral-deep))] text-left transition-colors">Media</button>
+              <button onClick={() => onNavigate('hobbies')} className="hover:text-[hsl(var(--coral-deep))] text-left transition-colors">Hobbies</button>
+              <button onClick={() => onNavigate('traveling')} className="hover:text-[hsl(var(--coral-deep))] text-left transition-colors">Travel</button>
+              <button onClick={() => onNavigate('future')} className="hover:text-[hsl(var(--coral-deep))] text-left transition-colors">Future</button>
             </div>
           </div>
 
+          <div className="md:col-span-2 flex md:justify-end items-start">
+            <div className="inline-flex items-center gap-2 text-xs font-mono-custom text-[hsl(var(--ink-soft))]">
+              <Circle className="w-2.5 h-2.5 fill-[hsl(var(--sage))] text-[hsl(var(--sage))]" />
+              still in progress
+            </div>
+          </div>
         </div>
 
-        <div className="pt-8 border-t border-neutral-800/60 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-neutral-400">
-          <p>© {new Date().getFullYear()} Subhan · High School Web Development Project</p>
-          <div className="flex items-center gap-4">
-            <span className="flex items-center gap-1">
-              Built with <Heart className="w-3 h-3 text-blue-400 fill-blue-400 inline mx-0.5" /> on Replit
-            </span>
+        <div className="pt-6 border-t border-[hsl(var(--line)/.8)] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs text-[hsl(var(--ink-soft))]">
+          <p>© {new Date().getFullYear()} Subhan · made between classes</p>
+          <div className="flex items-center gap-1 font-mono-custom">
+            Keep looking <ArrowUpRight className="w-3.5 h-3.5 text-[hsl(var(--coral))]" />
           </div>
         </div>
       </div>
