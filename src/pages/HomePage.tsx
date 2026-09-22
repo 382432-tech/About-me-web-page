@@ -21,10 +21,10 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
         {/* Blue ambient glow behind hero */}
         <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] bg-blue-600/15 blur-[120px] rounded-full pointer-events-none -z-10" />
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           
           {/* Main Hero Text */}
-          <div className="lg:col-span-7 space-y-6 text-left">
+          <div className="lg:col-span-8 space-y-6 text-left">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-mono font-medium">
               <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse" />
               Phase 1: Home Page Complete
@@ -89,9 +89,9 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
             </div>
           </div>
 
-          {/* Profile Media Frame */}
-          <div className="lg:col-span-5">
-            <div className="p-3 rounded-2xl bg-neutral-950 border border-neutral-800 shadow-2xl space-y-3">
+          {/* Profile Media Frame (Compact & Scaled Down) */}
+          <div className="lg:col-span-4 flex justify-center lg:justify-end">
+            <div className="w-full max-w-[240px] sm:max-w-[260px] p-2.5 rounded-2xl bg-neutral-950 border border-neutral-800 shadow-xl space-y-2.5">
               <div className="relative aspect-[3/4] w-full rounded-xl overflow-hidden bg-neutral-900 border border-neutral-800 flex items-center justify-center group">
                 <img 
                   src="/images/profile.png" 
@@ -114,31 +114,31 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                 
                 <div 
                   id="profile-placeholder-box" 
-                  className="hidden absolute inset-0 flex-col items-center justify-center p-6 text-center bg-neutral-900"
+                  className="hidden absolute inset-0 flex-col items-center justify-center p-4 text-center bg-neutral-900"
                 >
-                  <UploadCloud className="w-10 h-10 text-blue-400 mb-2 animate-pulse" />
-                  <span className="text-sm font-bold text-white mb-1">
+                  <UploadCloud className="w-8 h-8 text-blue-400 mb-2 animate-pulse" />
+                  <span className="text-xs font-bold text-white mb-1">
                     Subhan's Profile Photo
                   </span>
-                  <p className="text-xs text-neutral-400 max-w-xs font-mono">
+                  <p className="text-[10px] text-neutral-400 max-w-[180px] font-mono">
                     Drop your photo into <span className="text-blue-400 font-semibold">public/images/profile.png</span>
                   </p>
                 </div>
 
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
-                <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between pointer-events-none">
-                  <span className="px-2.5 py-1 rounded-full bg-blue-600/80 backdrop-blur-md text-[11px] font-semibold text-white">
+                <div className="absolute bottom-2.5 left-2.5 right-2.5 flex items-center justify-between pointer-events-none">
+                  <span className="px-2 py-0.5 rounded-full bg-blue-600/80 backdrop-blur-md text-[10px] font-semibold text-white">
                     Subhan
                   </span>
-                  <span className="text-[11px] font-mono text-neutral-300 bg-neutral-950/80 px-2 py-0.5 rounded border border-neutral-800">
-                    Profile Portrait
+                  <span className="text-[10px] font-mono text-neutral-300 bg-neutral-950/80 px-1.5 py-0.5 rounded border border-neutral-800">
+                    Portrait
                   </span>
                 </div>
               </div>
 
-              <div className="p-2.5 rounded-xl bg-neutral-900/60 border border-neutral-800/80 text-center">
-                <span className="text-xs font-mono text-neutral-400">
-                  Target photo: <code className="text-blue-400 font-semibold">public/images/profile.png</code>
+              <div className="py-1.5 px-2 rounded-lg bg-neutral-900/60 border border-neutral-800/80 text-center">
+                <span className="text-[11px] font-mono text-neutral-400">
+                  <code className="text-blue-400 font-semibold">profile.png</code>
                 </span>
               </div>
             </div>
