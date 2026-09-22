@@ -34,10 +34,10 @@ export const App: React.FC = () => {
   };
 
   return (
-    <div className="paper-shell min-h-[100dvh] flex flex-col justify-between">
+    <div className="min-h-screen bg-black text-neutral-100 flex flex-col justify-between selection:bg-blue-600/30 selection:text-blue-200">
       <Navigation currentPage={currentPage} onNavigate={handleNavigate} />
       
-      <main className="flex-grow w-full">
+      <main className="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 pt-6">
         {renderPage()}
       </main>
 
