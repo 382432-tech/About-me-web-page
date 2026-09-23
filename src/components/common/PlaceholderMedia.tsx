@@ -31,25 +31,25 @@ export const PlaceholderMedia: React.FC<PlaceholderMediaProps> = ({
   };
 
   return (
-    <div
-      className={`relative w-full ${getAspectClass()} rounded-sm border border-dashed border-[hsl(var(--line))] bg-[hsl(var(--paper)/.55)] hover:bg-[hsl(var(--paper-deep)/.8)] transition-colors flex flex-col items-center justify-center p-6 text-center group ${className}`}
+    <div 
+      className={`relative w-full ${getAspectClass()} rounded-xl border border-dashed border-neutral-700/80 bg-neutral-900/50 hover:bg-neutral-900/70 transition-all flex flex-col items-center justify-center p-6 text-center group ${className}`}
     >
-      <div className="w-12 h-12 rounded-full bg-[hsl(var(--sage)/.45)] border border-[hsl(var(--sage))] flex items-center justify-center text-[hsl(var(--ink))] mb-3 group-hover:scale-110 transition-transform">
-        <UploadCloud className="w-6 h-6" strokeWidth={1.5} />
+      <div className="w-12 h-12 rounded-full bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 mb-3 group-hover:scale-110 transition-transform">
+        <UploadCloud className="w-6 h-6" />
       </div>
 
       <div className="space-y-1 max-w-xs">
-        <div className="flex items-center justify-center gap-1.5 text-xs font-semibold text-[hsl(var(--ink))] uppercase tracking-wider">
-          <Sparkles className="w-3.5 h-3.5 text-[hsl(var(--coral))]" strokeWidth={1.7} />
+        <div className="flex items-center justify-center gap-1.5 text-xs font-semibold text-neutral-300 uppercase tracking-wider">
+          <Sparkles className="w-3.5 h-3.5 text-blue-400" />
           <span>{label}</span>
         </div>
         {dimensions && (
-          <p className="text-[11px] font-mono-custom text-[hsl(var(--ink-soft))] font-semibold">
+          <p className="text-[11px] font-mono text-neutral-300 font-semibold">
             {dimensions}
           </p>
         )}
         {hint && (
-          <p className="text-xs text-[hsl(var(--ink-soft))] leading-relaxed pt-1">
+          <p className="text-xs text-neutral-300 leading-relaxed pt-1">
             {hint}
           </p>
         )}
