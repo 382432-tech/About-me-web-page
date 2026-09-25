@@ -5,6 +5,7 @@ import {
   Image as ImageIcon, 
   Heart, 
   Plane, 
+  Stethoscope,
   Sparkles,
   UploadCloud
 } from 'lucide-react';
@@ -35,7 +36,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                 Hello, I’m <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-blue-200 to-indigo-300">Subhan</span>.
               </h1>
               <p className="text-lg sm:text-xl text-neutral-300 font-medium">
-                High School Web Development Student & Future Software Creator
+                High School Student & Aspiring Medical Doctor
               </p>
             </div>
 
@@ -46,7 +47,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                 <span className="text-blue-400">Student Profile</span>
               </div>
               <p className="text-neutral-300 text-sm sm:text-base leading-relaxed">
-                Welcome to my high school web development portfolio. This website is built to track and demonstrate my growth as a programmer and creator. Across this course, I am designing modular, interactive experiences covering media presentations, personal hobbies, travel aspirations, and future tech goals.
+                Welcome to my high school web development portfolio. This website is built to track and demonstrate my growth as a student and future healthcare professional. Across this course, I am designing modular, interactive experiences covering media presentations, personal hobbies, travel aspirations, and my future pathway toward becoming a doctor.
               </p>
               <p className="text-neutral-400 text-xs leading-relaxed">
                 Explore each phase below to see my coursework progression and project demos.
@@ -74,7 +75,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                 onClick={() => onNavigate('future')}
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-neutral-900 hover:bg-neutral-800 border border-neutral-800 text-neutral-200 font-medium text-sm transition-all cursor-pointer"
               >
-                <span>Future Vision</span>
+                <span>Future: Aspiring Doctor</span>
               </button>
             </div>
 
@@ -236,18 +237,18 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
             className="p-6 rounded-2xl bg-neutral-950 border border-neutral-800/90 hover:border-blue-500/50 cursor-pointer transition-all group flex flex-col justify-between"
           >
             <div>
-              <div className="w-10 h-10 rounded-xl bg-neutral-900 border border-neutral-800 flex items-center justify-center text-violet-400 mb-4 group-hover:scale-105 transition-transform">
-                <Sparkles className="w-5 h-5" />
+              <div className="w-10 h-10 rounded-xl bg-neutral-900 border border-neutral-800 flex items-center justify-center text-teal-400 mb-4 group-hover:scale-105 transition-transform">
+                <Stethoscope className="w-5 h-5" />
               </div>
               <h3 className="text-lg font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">
-                Phase 7: Future
+                Phase 7: Future (Doctor)
               </h3>
               <p className="text-xs text-neutral-400 leading-relaxed mb-4">
-                Long-term career aspirations, higher education pathways in computer science, and engineering vision.
+                Long-term aspiration of becoming a medical doctor, university pre-med pathway, clinical hospital training, and healthcare vision.
               </p>
             </div>
-            <div className="flex items-center justify-between pt-4 border-t border-neutral-900 text-xs font-mono text-violet-400">
-              <span>View Phase 7</span>
+            <div className="flex items-center justify-between pt-4 border-t border-neutral-900 text-xs font-mono text-teal-400">
+              <span>Explore Doctor Vision</span>
               <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
             </div>
           </div>

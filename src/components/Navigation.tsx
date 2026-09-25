@@ -5,7 +5,7 @@ import {
   Image, 
   Heart, 
   Plane, 
-  Sparkles, 
+  Stethoscope, 
   Menu,
   X
 } from 'lucide-react';
@@ -30,7 +30,7 @@ export const Navigation: React.FC<NavigationProps> = ({ currentPage, onNavigate 
     { id: 'media', label: 'Media', phase: 'Phase 2', icon: Image },
     { id: 'hobbies', label: 'Hobbies', phase: 'Phase 3', icon: Heart },
     { id: 'traveling', label: 'Traveling', phase: 'Phase 4', icon: Plane },
-    { id: 'future', label: 'Future', phase: 'Phase 7', icon: Sparkles },
+    { id: 'future', label: 'Future', phase: 'Phase 7', icon: Stethoscope },
   ];
 
   return (
