@@ -13,8 +13,9 @@ app.use(express.json());
 
 const DATA_DIR = path.join(__dirname, 'data');
 const SUBMISSIONS_FILE = path.join(DATA_DIR, 'submissions.json');
+const CONTACT_RECEIVED_FILE = path.join(DATA_DIR, 'contactReceived.json');
 
-// Ensure data directory and file exist
+// Ensure data directory and files exist
 if (!fs.existsSync(DATA_DIR)) {
   fs.mkdirSync(DATA_DIR, { recursive: true });
 }
@@ -22,6 +23,73 @@ if (!fs.existsSync(DATA_DIR)) {
 if (!fs.existsSync(SUBMISSIONS_FILE)) {
   fs.writeFileSync(SUBMISSIONS_FILE, JSON.stringify([], null, 2), 'utf-8');
 }
+
+if (!fs.existsSync(CONTACT_RECEIVED_FILE)) {
+  fs.writeFileSync(CONTACT_RECEIVED_FILE, JSON.stringify([], null, 2), 'utf-8');
+}
+
+// API Routes
+app.get('/api/contact', (req, res) => {
+  try {
+    const rawData = fs.readFileSync(CONTACT_RECEIVED_FILE, 'utf-8');
+    const data = JSON.parse(rawData || '[]');
+    res.json(data);
+  } catch (err) {
+    console.error('Error reading contact messages:', err);
+    res.status(500).json({ error: 'Failed to read contact messages' });
+  }
+});
+
+app.post('/api/contact', (req, res) => {
+  try {
+    const { firstName, lastName, email, reason, message } = req.body;
+
+    // Validate required fields
+    if (!firstName || !lastName || !email || !reason || !message) {
+      return res.status(400).json({ error: 'All fields (firstName, lastName, email, reason, message) are required' });
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      return res.status(400).json({ error: 'Invalid email address format' });
+    }
+
+    const validReasons = ['Comment', 'Question', 'Partnership', 'Opportunity', 'Other'];
+    if (!validReasons.includes(reason)) {
+      return res.status(400).json({ error: 'Reason must be one of: Comment, Question, Partnership, Opportunity, Other' });
+    }
+
+    let messages = [];
+    if (fs.existsSync(CONTACT_RECEIVED_FILE)) {
+      try {
+        const raw = fs.readFileSync(CONTACT_RECEIVED_FILE, 'utf-8');
+        messages = JSON.parse(raw || '[]');
+      } catch {
+        messages = [];
+      }
+    }
+
+    const newRecord = {
+      id: `msg_${Date.now()}_${Math.random().toString(36).substring(2, 9)}`,
+      firstName: String(firstName).trim(),
+      lastName: String(lastName).trim(),
+      email: String(email).trim(),
+      reason,
+      message: String(message).trim(),
+      submittedAt: new Date().toISOString(),
+      replied: false,
+      repliedAt: null
+    };
+
+    messages.unshift(newRecord);
+    fs.writeFileSync(CONTACT_RECEIVED_FILE, JSON.stringify(messages, null, 2), 'utf-8');
+
+    return res.status(201).json(newRecord);
+  } catch (err) {
+    console.error('Error saving contact submission:', err);
+    res.status(500).json({ error: 'Failed to save contact message to storage' });
+  }
+});
 
 // API Routes
 app.get('/api/submissions', (req, res) => {

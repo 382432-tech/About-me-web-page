@@ -43,11 +43,11 @@ export const Navigation: React.FC<NavigationProps> = ({ currentPage, onNavigate 
             className="flex items-center gap-3 cursor-pointer group"
           >
             <div className="w-9 h-9 rounded-xl bg-blue-600/20 border border-blue-500/40 flex items-center justify-center text-blue-400 group-hover:border-blue-400 transition-colors">
-              <span className="font-mono font-bold text-sm">S</span>
+              <span className="font-mono font-bold text-sm">AS</span>
             </div>
             <div>
               <span className="font-bold text-base text-white tracking-tight group-hover:text-blue-400 transition-colors">
-                Subhan
+                Ahmad Shirzai
               </span>
               <span className="hidden sm:inline-block ml-2 text-xs font-mono text-neutral-400">
                 Course Portfolio

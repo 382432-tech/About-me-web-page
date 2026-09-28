@@ -15,13 +15,21 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
           <div className="space-y-3 md:col-span-2">
             <div className="flex items-center gap-2">
               <div className="w-6 h-6 rounded-md bg-blue-600/30 flex items-center justify-center text-blue-400 font-mono font-bold text-xs">
-                S
+                AS
               </div>
-              <span className="font-bold text-white tracking-tight">Subhan's Web Development Portfolio</span>
+              <span className="font-bold text-white tracking-tight">Ahmad Shirzai's Web Development Portfolio</span>
             </div>
             <p className="text-xs text-neutral-400 max-w-sm leading-relaxed">
-              Created for the high school web development coursework curriculum. Designed for modular development across coursework phases.
+              Created for high school web development coursework curriculum. Designed for modular development across coursework phases.
             </p>
+            <div className="pt-1">
+              <a 
+                href="mailto:ahmadshirza1i1@gmail.com" 
+                className="text-xs font-mono text-blue-400 hover:underline inline-flex items-center gap-1.5"
+              >
+                <span>ahmadshirza1i1@gmail.com</span>
+              </a>
+            </div>
           </div>
 
           <div className="space-y-2">
@@ -40,7 +48,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
         </div>
 
         <div className="pt-8 border-t border-neutral-800/60 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-neutral-400">
-          <p>© {new Date().getFullYear()} Subhan · High School Web Development Project</p>
+          <p>© {new Date().getFullYear()} Ahmad Shirzai · High School Web Development Project</p>
           <div className="flex items-center gap-4">
             <span className="flex items-center gap-1">
               Built with <Heart className="w-3 h-3 text-blue-400 fill-blue-400 inline mx-0.5" /> on Replit
