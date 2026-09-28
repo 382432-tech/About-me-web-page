@@ -39,3 +39,8 @@ outputType = "webview"
 [postMerge]
 path = "scripts/post-merge.sh"
 timeoutMs = 180000
+
+[deployment]
+deploymentTarget = "vm"
+run = ["bash", "-c", "NODE_ENV=production npm run dev"]
+build = ["npm", "run", "build"]
